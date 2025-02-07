@@ -6,7 +6,8 @@ const connectionInterface = (() => {
         user: process.env.DB_USER,
         password: process.env.DB_PASSWORD,
         database: 'chess_custom',
-        insecureAuth : true
+        insecureAuth : true,
+        timezone: 'utc'
     });
 
     connection.connect(function(err) {

@@ -23,7 +23,7 @@ input:focus {
 .btn {
     display: block;
     border: none;
-    background-color: rgb(54, 160, 195);
+    background-color: rgb(79, 79, 79);
     color: white;
     border-radius: 4px;
     max-width: 200px;
@@ -35,11 +35,11 @@ input:focus {
 }
 
 .btn:hover {
-    background-color: rgb(48, 149, 182);
+    background-color: rgb(58, 58, 58);
 }
 
 .btn:focus {
-    outline: 3px solid rgba(54, 160, 195, 0.3);
+    outline: 3px solid rgba(58, 58, 58, 0.3);
 }
 
 .center {
@@ -49,4 +49,10 @@ input:focus {
 
 .text-center {
     text-align: center;
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
