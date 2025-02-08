@@ -1,7 +1,7 @@
 "use client";
 
-import './signin.css';
-import { useAuth } from '../AuthProvider';
+import '@/app/signin/signin.css';
+import { useAuth } from '@/app/AuthProvider';
 import { redirect } from 'next/navigation';
 import { useEffect } from 'react';
 

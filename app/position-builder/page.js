@@ -1,6 +1,6 @@
 'use client'
 
-import AuthProtected from "../AuthProtected"
+import AuthProtected from "@/app/AuthProtected"
 import Link from "next/link";
 
 export default function PositionBuilderPage() {

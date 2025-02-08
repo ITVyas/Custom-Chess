@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react";
-import { useAuth } from "./AuthProvider";
+import { useAuth } from "@/app/AuthProvider";
 import { redirect } from "next/navigation";
 
 export default function AuthProtected({children}) {

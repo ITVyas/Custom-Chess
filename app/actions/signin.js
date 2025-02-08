@@ -1,7 +1,7 @@
 'use server'
 
-import dbActions from "../db/db-actions";
-import { generateAccessAndRefreshTokens } from "../server-access-api";
+import dbActions from "@/app/db/db-actions";
+import { generateAccessAndRefreshTokens } from "@/app/access-api/server-access-api";
 import { cookies } from "next/headers";
 
 function parseFormSignInData(formData) {

@@ -1,7 +1,7 @@
 'use server';
 import { cookies } from "next/headers";
-import dbActions from "./db/db-actions";
-import { convertDateToInt, formatDate } from "./util";
+import dbActions from "@/app/db/db-actions";
+import { convertDateToInt, formatDate } from "@/app/util";
 import jwt from 'jsonwebtoken';
 import crypto from 'crypto';
 

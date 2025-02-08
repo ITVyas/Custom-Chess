@@ -1,10 +1,9 @@
 'use client'
 
 import { createContext, useContext, useEffect, useState } from "react"
-import clientAccessApi from "./client-access-api";
-import { signin } from "./actions/signin";
-import { refreshAccessToken } from "./server-access-api";
-import { clearAllCookies } from "./server-access-api";
+import clientAccessApi from "@/app/access-api/client-access-api";
+import { signin } from "@/app/actions/signin";
+import { refreshAccessToken, clearAllCookies } from "@/app/access-api/server-access-api";
 import { usePathname  } from "next/navigation";
 
 const AuthContext = createContext();

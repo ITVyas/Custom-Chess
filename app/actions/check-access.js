@@ -1,7 +1,6 @@
 'use server'
 import jwt from 'jsonwebtoken';
-import dbActions from '../db/db-actions';
-import { convertDateToInt } from '../util';
+import dbActions from '@/app/db/db-actions';
 
 export async function checkIfUserHasAccess(accessToken) {
     if(typeof(accessToken) !== 'string') return false;

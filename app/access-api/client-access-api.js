@@ -1,6 +1,6 @@
-import { Observer } from "./util";
-import { clearRefreshTokenFromCookie, refreshAccessToken } from "./server-access-api";
-import { checkIfUserHasAccess } from "./actions/check-access";
+import { Observer } from "@/app/util";
+import { clearRefreshTokenFromCookie, refreshAccessToken } from "@/app/access-api/server-access-api";
+import { checkIfUserHasAccess } from "@/app/actions/check-access";
 
 const clientAccessApi = (() => {
     const observers = {
