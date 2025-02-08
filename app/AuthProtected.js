@@ -2,18 +2,19 @@
 
 import { useEffect, useState } from "react";
 import { useAuth } from "@/app/AuthProvider";
-import { redirect } from "next/navigation";
+import { redirect, usePathname } from "next/navigation";
 
 export default function AuthProtected({children}) {
     const { accessToken, logout } = useAuth();
-    const [ load, setLoad ] = useState(accessToken !== undefined);;
+    const [ load, setLoad ] = useState(accessToken !== undefined);
+    const pathname = usePathname();
 
     useEffect(() => {
-        if(accessToken === null) {
+        if(accessToken === null && pathname !== '/signin') {
             redirect('/signin');
         }
         if(accessToken !== undefined && !load) setLoad(true);
-    }, [accessToken]);
+    }, [accessToken, pathname]);
 
     if(load) {
         if(accessToken) {
@@ -21,7 +22,7 @@ export default function AuthProtected({children}) {
                 <> {children} </>
             ); 
         } else {
-            return (<>Access Denied!</>);
+            return null;
         }
     } else {
         return null;
