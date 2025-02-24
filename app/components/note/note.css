@@ -1,0 +1,20 @@
+.note-block {
+    height: fit-content;
+    box-sizing: border-box;
+    padding: 0 10px 10px 10px;
+    background-color: rgba(0, 0, 0, 0.025);
+    font-size: 0.9rem;
+    border-left: 4px solid #1f6feb;
+    font-family: Tahoma, Verdana, sans-serif;
+}
+
+.note-top-header {
+    line-height: 1.8rem;
+    color: #1f68d7;
+}
+
+
+.note-info-icon {
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+}

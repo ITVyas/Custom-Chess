@@ -1,0 +1,11 @@
+.number-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.number-input {
+    height: 1.7rem !important;
+    width: 30px !important;
+    padding: 0 2px !important;
+    margin: 0 5px;
+    text-align: center;
+}

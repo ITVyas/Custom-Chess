@@ -34,7 +34,13 @@ input:focus {
     padding: 7px 0;
 }
 
-.btn:hover {
+
+.btn:disabled {
+    background-color: rgb(121, 121, 121);
+    cursor: auto;
+}
+
+.btn:not(:disabled):hover {
     background-color: rgb(58, 58, 58);
 }
 
@@ -52,7 +58,17 @@ input:focus {
 }
 
 html, body {
-    height: 100%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }

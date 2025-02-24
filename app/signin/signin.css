@@ -10,8 +10,10 @@
     width: calc(100% - 60px);
     min-width: calc(320px - 60px);
     font-size: 1.2rem;
-    background-color: rgba(0, 0, 0, 0.12);
+    background-color: rgba(255, 255, 255, 0.7);
     border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid black;
 }
 
 .login-form input {
@@ -32,7 +34,7 @@ h1 {
 }
 
 body:has(.login-form) {
-    background: linear-gradient( rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8) ), url('https://png.pngtree.com/png-clipart/20241015/original/pngtree-the-elegance-of-a-shiny-black-chess-pawn-glossy-s-journey-png-image_16326926.png');
+    background: linear-gradient( rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6) ), url('/favicon.png');
     background-size: contain;
     background-repeat: no-repeat;
 }

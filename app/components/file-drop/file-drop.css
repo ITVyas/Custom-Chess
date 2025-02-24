@@ -1,0 +1,130 @@
+.my-file-drop {
+    width: 100%;
+    height: fit-content;
+    min-height: 100px;
+    display: block;
+    border: 2px dashed darkmagenta;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: rgb(255, 241, 255);
+    cursor: pointer;
+}
+
+.my-file-drop div {
+    box-sizing: border-box;
+}
+
+.no-file-content {
+    width: 100%;
+    padding: 10px;
+    position: relative;
+    height: fit-content;
+}
+
+.my-file-drop:hover,
+.my-file-drop.drag-over {
+    background-color: rgb(252, 224, 252);
+}
+
+.my-file-drop input[type="file"] {
+    display: none;
+}
+
+.folder-icon {
+    display: block;
+    font-size: 30px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.label-text {
+    margin-top: 20px;
+    text-align: center;
+    display: block;
+}
+
+.file-name {
+    display: block;
+    text-align: center;
+    color: rgb(65, 65, 65);
+    margin-top: 20px;
+}
+
+.my-file-drop-OR {
+    display: block;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.browse-file {
+    display: block;
+    width: fit-content;
+    padding: 5px 15px;
+    background-color: darkmagenta;
+    border-radius: 5px;
+    color: white;
+    margin: 5px auto;
+}
+
+.loaded-file-preview {
+    position: relative;
+    margin: 10px auto;
+    height: 130px;
+    width: calc(100% - 20px);
+    max-width: 240px;
+    aspect-ratio: 1 / 1;
+    background-color: rgb(164, 164, 164);
+    border-radius: 6px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+    display: flex;
+    overflow: hidden;
+}
+
+.file-preview-name {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: auto;
+    height: fit-content;
+    background-color: rgb(48, 48, 48);
+    display: block;
+    color: white;
+    padding: 0 10px;
+}
+
+.file-preview-name div {
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 5px 0 4px;
+}
+
+.loaded-file-preview.incorrect {
+    background-color: rgb(167, 145, 145);
+}
+
+.loaded-file-preview.incorrect::after {
+    content: '✖';
+    font-size: 48px;
+    color: brown;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20px;
+}
+
+.loaded-file-preview.incorrect .file-preview-name {
+    color: rgb(214, 88, 88);
+}
+
+.loaded-file-preview.correct::after {
+    content: '✓';
+    font-size: 48px;
+    color: rgb(33, 134, 40);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20px;
+    font-weight: bold;
+}

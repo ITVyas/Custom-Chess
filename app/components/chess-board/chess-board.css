@@ -1,0 +1,54 @@
+.chess-board {
+    aspect-ratio: 1 / 1;
+    background-size: contain;
+    position: relative;
+    
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+}
+
+.chess-board.standard {
+    background-image: url('/img/boards/standard.png');
+}
+
+.chess-board.cb-12 {
+    width: calc(100% - 40px);
+}
+
+.chess-board .chess-piece {
+    background-size: contain;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+}
+
+.chess-board.center {
+    margin: 0 auto;
+}
+
+.chess-board.top-indent {
+    margin-top: 30px;
+}
+
+.possible-move-mark-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+}
+
+.possible-move-mark {
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.possible-move-mark.take-only {
+    background-color: rgba(179, 8, 28, 0.3);
+}
+
+.possible-move-mark.move-only {
+    background-color: rgba(9, 150, 16, 0.3);
+}

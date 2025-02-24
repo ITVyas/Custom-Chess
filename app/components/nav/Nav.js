@@ -6,7 +6,10 @@ const optionsAndPathes = {
     left: [
         { option: 'Home', path: '/'},
         { option: 'Play', path: '/play'},
-        { option: 'Create', path: '/create'},
+        { option: 'Create', suboptions: [
+            { name: 'Position', path: '/create/position' },
+            { name: 'Piece', path: '/create/piece'}
+        ]},
         { option: 'About', path: '/about'},
     ],
     right: [
@@ -22,17 +25,33 @@ export default function Nav() {
             let classes = "nav-link";
             classes += key === 'left' ? " left" : " right";
 
-            if(pathname === obj.path) {
+            const suboptions = obj.suboptions ? obj.suboptions.map(suboption => {
+                let liClassName = "";
+                if(suboption.path === pathname) {
+                    liClassName += "active";
+                    return (<li key={obj.option + '.' + suboption.name} className={liClassName}>{suboption.name}</li>);
+                }
+                return (<Link key={obj.option + '.' + suboption.name} href={suboption.path}><li className={liClassName}>{suboption.name}</li></Link>);
+            }) : null;
+
+            const ul = suboptions ? (
+                <ul>{suboptions}</ul>
+            ) : null;
+
+            if(pathname === obj.path || (ul && obj.suboptions.findIndex(x => x.path === pathname) !== -1)) {
                 classes += " active"
+            }
+
+            if(obj.path)
                 return (
-                    <div key={obj.option} className={classes}>{obj.option}</div>
+                    <Link href={obj.path} key={obj.option}>
+                        <div className={classes}>{obj.option}{ul}</div>
+                    </Link>
                 );
-            } 
-            return (
-                <Link href={obj.path} key={obj.option}>
-                    <div className={classes}>{obj.option}</div>
-                </Link>
-            );
+            else 
+                return (
+                    <div key={obj.option} className={classes}>{obj.option}{ul}</div>
+                );
         });
     }).flat();
 

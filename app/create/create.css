@@ -1,0 +1,609 @@
+.create-top-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.board-container {
+    width: 50%;
+}
+
+.right-panel {
+    width: 50%;
+}
+
+.positions-panel {
+    padding: 30px 20px;
+    width: calc(100% - 40px);
+    height: calc(100% - 60px);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.positions-panel .position-option {
+    width: 100%;
+    height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(230, 230, 230);
+    border-radius: 8px;
+}
+
+.positions-panel .position-option.default {
+    background-color: rgb(196, 238, 203);
+}
+
+.pieces-bottom-panel {
+    width: 100%;
+    height: 60px;
+    margin-top: 20px;
+    background-color: rgb(241, 241, 241);
+    padding: 10px;
+    align-items: center;
+
+    display: flex;
+    gap: 10px;
+}
+
+.bot-panel-piece {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    background-size: contain;
+
+    border: 3px solid black;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.bot-panel-piece:hover {
+    background-color: rgba(142, 142, 142, 0.3);
+}
+
+.bot-panel-piece.active {
+    background-color: rgba(102, 0, 94, 0.3);
+    cursor: default;
+}
+
+.pieces-color-change {
+    padding: 6px;
+    border: 3px solid black;
+    border-radius: 8px;
+    height: calc(100% - 12px);
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+}
+
+#piece-color-indicator {
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+}
+
+.piece-logic-container {
+    width: calc(100% - 40px);
+    height: calc(100% - 204px);
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.right-panel .piece-name-input {
+    width: calc(100% - 40px - 14px);
+    margin-top: 30px;
+    display: flex;
+    justify-self: center;
+}
+
+.piece-logic {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+    --bg-color: rgb(114, 114, 114);
+    background-color: var(--bg-color);
+    user-select: none;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.move-logic {
+    --bg-color: #34c047;
+}
+
+
+.piece-logic.logic-hidden {
+    border: 2px solid var(--bg-color);
+    background-color: white;
+    color: var(--bg-color);
+    width: 100%;
+    height: 40px;
+}
+
+.important-logic {
+    border: 6px solid rgb(32, 32, 145);
+    width: calc(100% - 12px);
+}
+
+.conditional-logic {
+    --bg-color: rgb(200, 143, 39);
+}
+
+.trigger-logic {
+    --bg-color: #c03478;
+}
+
+.defend-logic {
+    --bg-color: #e9e910;
+}
+
+.right-panel-bottom {
+    margin-top: 10px;
+    height: 50px;
+    display: grid;
+    gap: 10px;
+    width: calc(100% - 40px);
+    grid-template-columns: calc(30% - 5px) calc(70% - 5px);
+    padding: 20px;
+    position: relative;
+}
+
+.add-logic-btn {
+    height: 100%;
+    width: 100%;
+}
+
+.save-logic-btn {
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+}
+
+.add-logic-form-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   
+   position: fixed;
+   top: 0;
+   left: 0;
+
+   width: 100%;
+   height: 100%;
+
+   background-color: rgba(0, 0, 0, 0.25);
+   z-index: 100;
+}
+
+.add-logic-form-container.hiding {
+    display: none;
+}
+
+.add-logic-form {
+    width: 700px;
+    height: 500px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.add-logic-form .setting-fields {
+    height: 100%;
+    width: 50%;
+    float: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-logic-form .picking-logic-type {
+    height: calc(100% - 40px);
+    width: calc(50% - 40px);
+    float: left;
+    background-color: rgb(213, 239, 248);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 20px;
+}
+
+.add-logic-form .picking-logic-type .logic-type {
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+
+.add-logic-form .picking-logic-type .logic-type.move {
+    background-color: #34c04741;
+}
+
+.add-logic-form .picking-logic-type .logic-type.conditional {
+    background-color: rgba(200, 144, 39, 0.245);
+}
+
+.add-logic-form .picking-logic-type .logic-type.trigger {
+    background-color: #c0347841;
+}
+
+.add-logic-form .picking-logic-type .logic-type.important {
+    background-color: rgba(32, 32, 145, 0.205);
+}
+
+.add-logic-form .picking-logic-type .logic-type.defend {
+    background-color: #f6ff4a29;
+}
+
+.move-fields {
+    padding: 20px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.defend-fields {
+    padding: 10px;
+    display: none;
+    flex-direction: column;
+}
+
+.trigger-fields {
+    padding: 10px;
+    display: none;
+    flex-direction: column;
+}
+
+.add-logic-form:has(label.move input:checked) .move-fields {
+    display: flex;
+    height: 100%;
+}
+
+.add-logic-form:has(label.defend input:checked) .defend-fields {
+    display: flex;
+    height: 100%;
+}
+
+.add-logic-form:has(label.trigger input:checked) .trigger-fields {
+    display: flex;
+    height: 100%;
+}
+
+
+
+.group-name {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.move-fields input[type="number"] {
+    width: 40px;
+}
+
+.move-fields p:has(input[type="checkbox"]) {
+    margin: 10px;
+}
+
+.move-fields p.bold-label label {
+    font-weight: bold;
+}
+
+.move-fields p.bold-label {
+    margin-left: 0 !important;
+}
+
+.buttons-bottom {
+    margin-top: auto;
+    padding: 10px;
+    height: 30px;
+    display: flex;
+    gap: 10px;
+    position: relative;
+}
+
+.picking-logic-type label {
+    display: block;
+    cursor: pointer;
+    user-select: none;
+}
+
+.picking-logic-type input {
+    display: none;
+}
+
+.picking-logic-type {
+    .move:has(input:checked) {
+        background-color: #34c047 !important; 
+        color: white;
+    }
+
+    .conditional:has(input:checked) {
+        background-color: rgb(200, 144, 39) !important;
+        color: white;
+    }
+
+    .trigger:has(input:checked) {
+        background-color: #c03478 !important;
+        color: white;
+    }
+
+    .important:has(input:checked) {
+        background-color: rgb(32, 32, 145) !important;
+        color: white;
+    }
+
+    .defend:has(input:checked) {
+        background-color: #fbff8d !important;
+    }
+}
+
+.form-warning-msg, .form-confirmation-modal {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    padding: 7px 20px;
+    border: 2px solid rgb(180, 13, 13);
+    border-radius: 6px;
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+    white-space: wrap;
+    background-color: white;
+    transform: translateX(-50%);
+    z-index: 10;
+    animation: fade-in 0.3s;
+    box-sizing: border-box;
+    text-align: center;
+    width: calc(100% - 10px);
+}
+
+.form-confirmation-modal .confirmation-msg {
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+}
+
+.form-confirmation-modal .confirmation-buttons {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.form-confirmation-modal .confirmation-buttons button {
+    font-size: 14px;
+}
+
+.form-confirmation-modal .confirmation-buttons button.confirmation-yes {
+    background-color: rgb(55, 94, 72) !important;
+}
+
+.form-confirmation-modal .confirmation-buttons button.confirmation-no {
+    background-color: rgb(94, 55, 55) !important;
+}
+
+.remove-logic-btn {
+    box-sizing: content-box;
+    position: absolute;
+    display: flex;
+    width: 30px;
+    height: 30px;
+    right: 5px;
+    top: 50%;
+    padding-bottom: 2px;
+    transform: translateY(-50%);
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.remove-logic-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.piece-logic.logic-hidden .remove-logic-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.conditional-fields {
+    display: none;
+    flex-direction: column;
+    position: relative;
+    padding: 10px;
+}
+
+.condition-position-btn {
+    width: 200px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border: 2px dashed black;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 7px;
+    margin: 20px auto 0;
+    cursor: pointer;
+    user-select: none;
+}
+
+.add-logic-form:has(label.conditional input:checked) .conditional-fields {
+    display: flex;
+    height: 100%;
+}
+
+.condition-position-btn:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 700px) {
+    .create-top-container {
+        flex-wrap: wrap;
+    }
+
+    .board-container {
+        width: 100%;
+    }
+
+    .right-panel {
+        width: 100%;
+    }
+}
+
+.crown {
+    position: relative;
+    height: 100%;
+}
+
+.crown::after {
+    content: '👑';
+    position: absolute;
+    transform: translateX(calc(-100% - 10px)) translateY(-11px);
+    top: 0;
+    font-size: 24px;
+    text-shadow: 0 0 8px rgba(11, 0, 111, 0.25);
+}
+
+.info {
+    position: relative;
+}
+
+.info::after {
+    position: absolute;
+    content: '🛈';
+    left: 0;
+    transform: translate(calc(-100% - 5px), -8px);
+    font-size: 24px;
+}
+
+.info div {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    width: 285px;
+    background-color: black;
+    border-radius: 8px;
+    color: white;
+    padding: 10px;
+    text-align: start;
+    text-indent: 10px;
+}
+
+.info:hover div {
+    display: block;
+}
+
+.logic-name-input {
+    width: calc(100% - 14px);
+    height: 20px;
+    background-color: rgba(32, 32, 145, 0.205);
+    display: block !important;
+    border-color: rgba(0, 12, 119, 0.1);
+    margin-top: auto;
+}
+
+.logic-name-input::placeholder {
+    color: rgb(103, 103, 145);
+}
+
+.picking-logic-type {
+    display: flex;
+    flex-direction: column;
+}
+
+.save-piece-form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.35);
+    z-index: 10;
+}
+
+.save-piece-form-container:has(.hiding) {
+    display: none;
+}
+
+.save-piece-form {
+    width: 350px;
+    height: fit-content;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    position: relative;
+}
+
+.save-form-warning,
+.save-piece-warning {
+    position: absolute;
+    z-index: 10;
+    bottom: 55px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(164, 6, 6);
+    background-color: white;
+    padding: 5px 0;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    animation: fade-in 0.2s;
+}
+
+.save-piece-warning {
+    top: 5px;
+    left: 50%;
+    transform: translate(-50%, -100%);
+}
+
+#save-form-piece-name {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.save-piece-form .note-block {
+    margin-bottom: 10px;
+}
+
+.save-piece-form button[type="submit"] {
+    margin: 20px auto 0;
+}
+
+.save-piece-close {
+    top: 0;
+    right: 0;
+    position: absolute;
+    transform: translate(50%, -40%);
+    display: flex;
+    height: 30px;
+    width: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: rgb(227, 227, 227);
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
+    padding-bottom: 2px;
+    padding-left: 1px;
+    cursor: pointer;
+}
+
+.save-piece-close:hover {
+    background-color: rgb(211, 211, 211);
+}
