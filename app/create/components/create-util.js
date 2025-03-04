@@ -15,5 +15,6 @@ export async function getAllUserPieces() {
 }
 
 export function getPieceKey(pieceObj) {
+    if('key' in pieceObj) return pieceObj.key;
     return exists(pieceObj.id) ? pieceObj.id : pieceObj.name;
 }

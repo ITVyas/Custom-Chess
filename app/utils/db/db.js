@@ -166,5 +166,53 @@ db.getUserPieces = async (userId) => {
     return result;
 };
 
+db.getUserPositions = async (userId) => {
+    const con = connectionsInterface.createConnection();
+
+    const result = await new Promise((resolve, reject) => {
+        con.query(`SELECT position_id, position_name, position FROM user_position LEFT JOIN positions ON user_position.position_id = positions.id WHERE user_id = ? ;`,
+            [userId],
+            (error, results) => {
+                if(error) reject(new Error(error));
+                resolve(results);
+            }
+        );
+    });
+
+    connectionsInterface.endConnection(con);
+    return result;
+};
+
+db.savePosition = async (positionObject) => {
+    const con = connectionsInterface.createConnection();
+    const result = await new Promise((resolve, reject) => {
+        con.query(`INSERT INTO positions (position) VALUES (?);`,
+            [JSON.stringify(positionObject)],
+            (error, results) => {
+                if(error) reject(new Error(error));
+                resolve({
+                    id: results.insertId,
+                });
+            }
+        );
+    });
+    connectionsInterface.endConnection(con);
+    return result;
+};
+
+db.saveUserPosition = async ({userId, positionId, positionName}) => {
+    const con = connectionsInterface.createConnection();
+    await new Promise((resolve, reject) => {
+        con.query(`INSERT INTO user_position (user_id, position_id, position_name) VALUES (?, ?, ?);`,
+            [userId, positionId, positionName],
+            (error) => {
+                if(error) reject(new Error(error));
+                resolve();
+            }
+        );
+    });
+    connectionsInterface.endConnection(con);
+};
+
 
 export default db; 

@@ -1,4 +1,4 @@
-import { Move } from "@/app/components/piece/piece-logic";
+import { Move } from "@/chess-logic/piece-logic-module";
 import { useContext, useEffect, useRef, useState } from "react";
 import MoveSubform from "./MoveSubform/MoveSubform";
 import ConditionalSubform from "./ConditionalSubform/ConditionalSubform";

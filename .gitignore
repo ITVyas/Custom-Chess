@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+/chess-games-socket/node_modules
+/challanges-socket/node_modules
 /.pnp
 .pnp.*
 .yarn/*

@@ -1,5 +1,6 @@
 import { createRange } from "@/app/utils/util";
-import { DefaultPiecesLogic } from "@/app/components/piece/piece-logic";
+import { DefaultPiecesLogic } from "@/chess-logic/piece-logic-module";
+import { getPieceKey } from "@/chess-logic/utils";
 
 const PiecePositions = {
     _createPiecesSymmetrically(whiteRowIndex, columnIndices, name, boardShape={rows: 8, columns: 8}) {
@@ -23,7 +24,29 @@ const PiecePositions = {
         const bishops = this._createPiecesSymmetrically(0, createRange(8, 2, 3), 'bishop');
         const queens = this._createPiecesSymmetrically(0, [3], 'queen');
         const kings = this._createPiecesSymmetrically(0, [4], 'king');
-        return [...pawns, ...rooks, ...knights, ...bishops, ...queens, ...kings];
+
+        const pieces = [...pawns, ...rooks, ...knights, ...bishops, ...queens, ...kings];
+        const pieceBases = {};
+        pieces.forEach(piece => {
+            if(pieceBases[getPieceKey(piece)]) return;
+            pieceBases[getPieceKey(piece)] = {
+                name: piece.name,
+                whiteImagePath: piece.whiteImagePath,
+                blackImagePath: piece.blackImagePath,
+                logic: piece.logic
+            };
+        });
+
+
+        return {
+            name: 'standard',
+            boardSize: {
+                rows: 8,
+                columns: 8
+            },
+            pieces: pieces.map(piece => ({ key: getPieceKey(piece), color: piece.color, position: piece.position })),
+            pieceBases: pieceBases
+        };
     }
 };
 

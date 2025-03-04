@@ -17,7 +17,7 @@
 .positions-panel {
     padding: 30px 20px;
     width: calc(100% - 40px);
-    height: calc(100% - 60px);
+    height: calc(100% - 150px);
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -163,10 +163,12 @@
     width: 100%;
 }
 
-.save-logic-btn {
+.save-logic-btn,
+.save-position-btn {
     height: 100%;
     width: 100%;
     max-width: 100%;
+    grid-column: 1 / span 2;
 }
 
 .add-logic-form-container {

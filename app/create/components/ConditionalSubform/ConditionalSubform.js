@@ -5,6 +5,7 @@ import SquareConfiguration from "./SquareConfiguration";
 import Note from "@/app/components/note/Note";
 import SquareResultConfiguration from "./SquareResultConfiguration";
 import { deepCopy } from "@/app/utils/util";
+import Checkbox from "@/app/components/checkbox/Checkbox";
 
 const SQUARE_L = 35;
 const BUTTON_L = 20;
@@ -195,13 +196,19 @@ export default function ConditionalSubform({collectObject}) {
     const [conditionalPositionShow, setConditionPositionShow] = useState(false);
     const [resultPositionShow, setResultPositionShow] = useState(false);
     const [resultPositionPick, setResultPositionPick] = useState('move');
+    const [flip, setFlip] = useState({ horizontal: false, vertical: false });
 
     collectObject.conditional = (() => {
         const conditionPositionCopy = deepCopy(conditionPosition);
+        delete conditionPositionCopy.boardExtended;
+            
+        
         conditionPositionCopy.resultType = resultPositionPick;
         if(resultPositionPick !== 'position') {
             conditionPositionCopy.resultCfg = undefined;
         }
+
+        conditionPositionCopy.flip = deepCopy(flip);
         return conditionPositionCopy;
     })();
 
@@ -312,7 +319,10 @@ export default function ConditionalSubform({collectObject}) {
                         </div>
                     </div>
                 </div>
-            </div>      
+            </div>   
+
+            <Checkbox className={'flip-checkbox'} id={"flip-condition-vertically"} labelText={"Add vertically inverted move"} checked={flip.vertical} onChange={(newVal) => setFlip({...flip, vertical: newVal}) }/>
+            <Checkbox className={'flip-checkbox'} id={"flip-condition-horizontally"} labelText={"Add horizontally inverted move"} checked={flip.horizontal} onChange={(newVal) => setFlip({...flip, horizontal: newVal}) }/>
             
         </form>
     );

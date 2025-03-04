@@ -49,7 +49,10 @@ export default function CreatePiece() {
 
     function handlePanelPieceClick(pieceKey) {
         const pieceIndex = pieces.findIndex(p => getPieceKey(p) === pieceKey);
-        if(pieceIndex === -1) return;
+        if(pieceIndex === -1) {
+            if(pieceKey === 'zero-piece') setCurrentPiece(getZeroPiece());
+            return;
+        };
         const piece = pieces[pieceIndex];
         const pieceCopy = deepCopy(piece);
         pieceCopy.logic.forEach(l => l.visible = true);
@@ -105,6 +108,7 @@ export default function CreatePiece() {
     }
 
     function handleAddLogicsToList(newLogicObject) {
+        console.log(JSON.stringify(newLogicObject));
         newLogicObject.visible = true;
         const newPieceLogics = [...currentPiece.logic];
         newPieceLogics.push(newLogicObject);
@@ -155,7 +159,7 @@ export default function CreatePiece() {
     return (
         <>
             {isAddLogicFormShown && <MoveLogicForm handleCancel={handleAddLogicFormCancel} handleSave={handleAddLogicsToList} />}
-            {isSavePieceFormShown && <SavePieceForm pieceName={pieceNameInput.current.value} ref={savePieceFormRef} submitAction={handleSavePieceAction} onClose={() => setSavePieceForm(false)} />}
+            {isSavePieceFormShown && <SavePieceForm pieceName={pieceNameInput.current.value} ref={savePieceFormRef} submitAction={handleSavePieceAction} onClose={() => setIsSavePieceFormShown(false)} />}
             <div className="create-top-container">
                 <div className="board-container">
                     <SinglePieceChessBoard boardSize={boardSize} piece={currentPiece} position={currentPiecePosition}/>

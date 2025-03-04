@@ -1,0 +1,21 @@
+.playground {
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+.board-part {
+    width: 100%;
+    height: fit-content;
+}
+
+.game-meta-part {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.045);
+}

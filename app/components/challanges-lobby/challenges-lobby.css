@@ -1,0 +1,95 @@
+.challanges-lobby {
+    width: calc(100% - 40px);
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.05);
+    margin: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    border: 2px solid gray;
+    border-radius: 10px;
+}
+
+.challanges-header {
+    width: 100%;
+    height: 40px;
+    display: grid;
+    grid-template-columns: repeat(4, calc(100% / 4));
+    border-bottom: 2px solid gray;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.challanges-header * {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.challanges-container {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.challange {
+    width: 100%;
+    height: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, calc(100% / 4));
+    box-sizing: border-box;
+}
+
+.challange span {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.accept-challange {
+    background-color: green;
+}
+
+.accept-challange:hover {
+    background-color: rgb(0, 97, 0) !important;
+}
+
+.create-challenge {
+    margin-left: 20px;
+    background-color: rgb(8, 8, 162);
+}
+
+.create-challenge:hover {
+    background-color: rgb(6, 6, 139) !important;
+}
+
+.new-challenge-form {
+    margin-left: 20px;
+
+}
+
+#select-position {
+    margin-left: 10px;
+    font-size: 18px;
+    padding: 5px;
+}
+
+.send-challenge {
+    margin-top: 10px;
+}
+
+.cancel-challenge {
+    margin-top: 10px;
+}
+
+.cancel-own-challange {
+    background-color: brown;
+}
+
+.cancel-own-challange:hover {
+    background-color: rgb(123, 28, 28) !important;
+}
+
+.challange:has(.cancel-own-challange) {
+    background-color: rgba(37, 225, 0, 0.15);
+}

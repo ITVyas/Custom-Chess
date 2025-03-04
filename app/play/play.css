@@ -1,0 +1,99 @@
+.play-global-mode-picking {
+    display: flex;
+    margin: 30px auto;
+    width: 350px;
+    height: 250px;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 2px solid rgb(54, 54, 54);
+    border-radius: 10px;
+}
+
+.play-global-mode-picking button {
+    width: 200px;
+    height: fit-content;
+    padding: 5px 10px;
+    background: none;
+    background-color: rgb(33, 51, 110);
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 5px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.play-global-mode-picking button:hover {
+    background-color: rgb(51, 71, 139);
+}
+
+.local-play-form {
+    display: flex;
+    margin: 30px auto;
+    width: 300px;
+    padding: 20px;
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    flex-direction: column;
+    position: relative;
+}
+
+.local-play-form select {
+    height: 30px;
+    width: 150px;
+}
+
+.local-play-form button[type="submit"] {
+    margin: 20px auto 0;
+}
+
+.local-play-form .close-btn {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1 / 1;
+    width: 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    padding-bottom: 1px;
+    box-sizing: border-box;
+}
+
+.local-play-form .close-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.connect-to-game {
+    width: 400px;
+    height: 300px;
+    background-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+    flex-direction: column;
+}
+
+.connect-to-game button {
+    background-color: rgb(225, 146, 0);
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+}
+
+.connect-to-game button:hover {
+    background-color: rgb(199, 129, 0) !important;
+}
+
+.connect-to-game div {
+    margin-bottom: 30px;
+    font-size: 20px;
+}

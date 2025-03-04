@@ -2,6 +2,6 @@
 
 export default function Home() {
   return (
-      <div>You are welcome!</div>
+      <h1 style={{textAlign: 'center'}}>You are welcome!</h1>
   );
 }

@@ -80,7 +80,7 @@ export default function TriggerSubform({collectObject}) {
     const transformationList = Boolean(pieces) && pieces.map(pieceObj => {
         const pieceKey = getPieceKey(pieceObj);
         const key = 'transformation'+pieceKey;
-        return <Checkbox onChange={(newValue) => updateSubData(['transformation', key], newValue)} checked={Boolean(subData.transformation[key])} key={key} name={key} id={key} labelText={pieceObj.name} />;
+        return <Checkbox onChange={(newValue) => updateSubData(['transformation', pieceKey], newValue)} checked={Boolean(subData.transformation[pieceKey])} key={key} name={pieceKey} id={key} labelText={pieceObj.name} />;
     });
     
     return (

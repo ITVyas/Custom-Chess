@@ -1,0 +1,16 @@
+{
+  "name": "challanges-socket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "challangesLobbySocket.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "redis": "^4.7.0",
+    "ws": "^8.18.1"
+  }
+}

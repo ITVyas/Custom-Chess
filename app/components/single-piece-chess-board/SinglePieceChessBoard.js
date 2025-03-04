@@ -1,22 +1,23 @@
 import '@/app/components/chess-board/chess-board.css';
 import Piece from '@/app/components/piece/Piece';
-import { Move, addMoveToPosition } from '@/app/components/piece/piece-logic';
+import { Move, addMoveToPosition } from '@/chess-logic/piece-logic-module';
+import PieceMoveMark from '../piece-move-mark/PieceMoveMark';
 
 function createPossibleMoveElement(position, boardSize, moveType=[]) {
-    let classes = 'possible-move-mark';
+    let moveTypeOnly = null;
 
     if(Object.entries(moveType).reduce((acc, val) => (val[1]? acc + 1: acc), 0) === 1) {
-        if(moveType.take) classes += ' take-only';
-        else if(moveType.move) classes += ' move-only';
+        if(moveType.take) moveTypeOnly = 'take';
+        else if(moveType.move) moveTypeOnly = 'move';
     }
 
     return (
-        <div key={'move-mark-'+position.row+'-'+position.column} style={{
-            gridRow: boardSize.rows - position.row + 1,
-            gridColumn: position.column
-        }} className={'possible-move-mark-container'}>
-            <div className={classes}></div>
-        </div>
+        <PieceMoveMark 
+            key={'move-mark-'+position.row+'-'+position.column} 
+            position={position} 
+            boardSize={boardSize}
+            moveTypeOnly={moveTypeOnly}
+        />
     );
 }
 
@@ -35,20 +36,20 @@ function createAllPossibleMoveMarksFromLogic(logics, position, boardSize) {
         if(logic.type !== 'move') return [];
         if(!logic.visible) return [];
         logic = logic.params;
-        const moveLogic = new Move(logic.movePattern, logic.rotate, logic.doRepeatPattern, logic.moveType, logic.doesJumpOver);
+        const moveLogic = new Move(logic.movePattern, logic.rotate, logic.doRepeatPattern, {move: true, take: true}, logic.doesJumpOver);
         moveLogic.initAllMoveMasks({boardSize: boardSize});
-        const emptyBoard = emptyBoardSimulate(boardSize);
-        return moveLogic.applyMasksOnBoard(emptyBoard, {position: position, color: 'white'})
-            .map(move => addMoveToPosition(position, move)).map(position => createPossibleMoveElement(position, boardSize, logic.moveType));
+        const board = emptyBoardSimulate(boardSize);
+        return moveLogic
+            .applyMasksOnBoard(board, {position: position, color: 'white'})
+            .map(move => addMoveToPosition(position, move))
+            .map(position => createPossibleMoveElement(position, boardSize, logic.moveType));
     }).flat();
 }
 
 export default function SinglePieceChessBoard({ boardSize, piece, position }) {
-
     const pieceElement = piece ? (
         <Piece boardSize={boardSize} 
-            startPosition={position}
-            image={piece.whiteImagePath} />
+                piece={{...piece, position: position, color: 'white'}} />
     ) : null;
 
     const moveMarks = piece ? createAllPossibleMoveMarksFromLogic(piece.logic, position, boardSize) : [];
